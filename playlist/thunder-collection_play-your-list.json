@@ -1,0 +1,378 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Play Your List - MS-AV-01",
+  "dateExported": "2026-09-21T23:30:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "21111111-1111-4111-8111-000000000001",
+      "name": "1 - musicas",
+      "containerId": "",
+      "created": "2026-09-21T23:30:00.000Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "21111111-1111-4111-8111-000000000002",
+      "name": "2 - playlists",
+      "containerId": "",
+      "created": "2026-09-21T23:30:00.000Z",
+      "sortNum": 20000
+    },
+    {
+      "_id": "21111111-1111-4111-8111-000000000003",
+      "name": "3 - reproducao",
+      "containerId": "",
+      "created": "2026-09-21T23:30:00.000Z",
+      "sortNum": 30000
+    },
+    {
+      "_id": "21111111-1111-4111-8111-000000000004",
+      "name": "4 - api (Open Feign)",
+      "containerId": "",
+      "created": "2026-09-21T23:30:00.000Z",
+      "sortNum": 40000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "31111111-1111-4111-8111-000000000001",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000001",
+      "name": "GET /musicas - listar todas",
+      "url": "http://localhost:8080/musicas",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000002",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000001",
+      "name": "GET /musicas/1 - buscar pelo id",
+      "url": "http://localhost:8080/musicas/1",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000003",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000001",
+      "name": "POST /musicas - cadastrar",
+      "url": "http://localhost:8080/musicas",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"titulo\": \"Hotel California\",\n  \"artista\": \"Eagles\",\n  \"album\": \"Hotel California\",\n  \"duracao\": 391,\n  \"genero\": \"Rock\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000004",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000001",
+      "name": "POST /musicas - validacoes (400)",
+      "url": "http://localhost:8080/musicas",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"titulo\": \"   \",\n  \"artista\": \"\",\n  \"duracao\": 0\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000005",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000001",
+      "name": "PUT /musicas/6 - atualizar",
+      "url": "http://localhost:8080/musicas/6",
+      "method": "PUT",
+      "sortNum": 50000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"titulo\": \"Hotel California\",\n  \"artista\": \"Eagles\",\n  \"album\": \"Hell Freezes Over\",\n  \"duracao\": 419,\n  \"genero\": \"Rock\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000006",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000001",
+      "name": "DELETE /musicas/6 - excluir",
+      "url": "http://localhost:8080/musicas/6",
+      "method": "DELETE",
+      "sortNum": 60000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000011",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "GET /playlists - listar todas",
+      "url": "http://localhost:8080/playlists",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000012",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "GET /playlists/1 - buscar pelo playlistid",
+      "url": "http://localhost:8080/playlists/1",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000013",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "POST /playlists - criar",
+      "url": "http://localhost:8080/playlists",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nome\": \"Foco Total\",\n  \"descricao\": \"Playlist para o programa HPWM\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000014",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "PUT /playlists/6 - atualizar nome e descricao",
+      "url": "http://localhost:8080/playlists/6",
+      "method": "PUT",
+      "sortNum": 40000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"nome\": \"Foco Total 2.0\",\n  \"descricao\": \"Playlist revisada\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000015",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "GET /playlists/1/musicas - ids das musicas",
+      "url": "http://localhost:8080/playlists/1/musicas",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000016",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "POST /playlists/6/musicas/2 - adicionar musica",
+      "url": "http://localhost:8080/playlists/6/musicas/2",
+      "method": "POST",
+      "sortNum": 60000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000017",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "DELETE /playlists/6/musicas/2 - remover musica",
+      "url": "http://localhost:8080/playlists/6/musicas/2",
+      "method": "DELETE",
+      "sortNum": 70000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000018",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000002",
+      "name": "DELETE /playlists/6 - excluir playlist e associacoes",
+      "url": "http://localhost:8080/playlists/6",
+      "method": "DELETE",
+      "sortNum": 80000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000021",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000003",
+      "name": "POST /reproducao - registrar execucao",
+      "url": "http://localhost:8080/reproducao",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"playlistid\": 1\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000022",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000003",
+      "name": "GET /reproducao/1 - listar reproducoes",
+      "url": "http://localhost:8080/reproducao/1",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000023",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000003",
+      "name": "GET /reproducao/total/1 - total de execucoes",
+      "url": "http://localhost:8080/reproducao/total/1",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000031",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000004",
+      "name": "POST /api/adicionar/2/musicas/1 - validar e adicionar",
+      "url": "http://localhost:8080/api/adicionar/2/musicas/1",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000032",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000004",
+      "name": "POST /api/adicionar/999/musicas/1 - playlist inexistente (404)",
+      "url": "http://localhost:8080/api/adicionar/999/musicas/1",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "31111111-1111-4111-8111-000000000033",
+      "colId": "11111111-1111-4111-8111-111111111111",
+      "containerId": "21111111-1111-4111-8111-000000000004",
+      "name": "PUT /api/executar/1 - executar playlist",
+      "url": "http://localhost:8080/api/executar/1",
+      "method": "PUT",
+      "sortNum": 30000,
+      "created": "2026-09-21T23:30:00.000Z",
+      "modified": "2026-09-21T23:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    }
+  ]
+}

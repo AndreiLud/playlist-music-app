@@ -1,0 +1,125 @@
+### Play Your List - exemplos de requisições
+### Utilize a extensão REST Client / Thunder Client do VS Code ou importe no Postman
+
+@host = http://localhost:8080
+
+############################################################
+# musicas - mantém as músicas disponíveis (CRUD)
+############################################################
+
+### POST /musicas: Cadastrar uma nova música
+POST {{host}}/musicas
+Content-Type: application/json
+
+{
+  "titulo": "Hotel California",
+  "artista": "Eagles",
+  "album": "Hotel California",
+  "duracao": 391,
+  "genero": "Rock"
+}
+
+### POST /musicas: exemplo que falha nas validações (400)
+POST {{host}}/musicas
+Content-Type: application/json
+
+{
+  "titulo": "   ",
+  "artista": "",
+  "duracao": 0
+}
+
+### GET /musicas: Listar todas as músicas
+GET {{host}}/musicas
+
+### GET /musicas/{id}: Buscar uma música pelo ID
+GET {{host}}/musicas/1
+
+### PUT /musicas/{id}: Atualizar uma música
+PUT {{host}}/musicas/6
+Content-Type: application/json
+
+{
+  "titulo": "Hotel California",
+  "artista": "Eagles",
+  "album": "Hell Freezes Over",
+  "duracao": 419,
+  "genero": "Rock"
+}
+
+### DELETE /musicas/{id}: Excluir uma música
+DELETE {{host}}/musicas/6
+
+############################################################
+# playlists - manutenção das playlists
+############################################################
+
+### POST /playlists: Criar uma nova playlist
+POST {{host}}/playlists
+Content-Type: application/json
+
+{
+  "nome": "Foco Total",
+  "descricao": "Playlist para o programa HPWM"
+}
+
+### GET /playlists: Listar todas as playlists
+GET {{host}}/playlists
+
+### GET /playlists/{playlistid}: Buscar uma playlist pelo playlistid
+GET {{host}}/playlists/1
+
+### PUT /playlists/{playlistid}: Atualizar o nome e a descrição
+PUT {{host}}/playlists/6
+Content-Type: application/json
+
+{
+  "nome": "Foco Total 2.0",
+  "descricao": "Playlist revisada"
+}
+
+### POST /playlists/{playlistid}/musicas/{musicaId}: Adicionar uma música à playlist
+POST {{host}}/playlists/6/musicas/2
+
+### GET /playlists/{playlistid}/musicas: Listar os ids das músicas da playlist
+GET {{host}}/playlists/1/musicas
+
+### DELETE /playlists/{playlistid}/musicas/{musicaId}: Remover uma música da playlist
+DELETE {{host}}/playlists/6/musicas/2
+
+### DELETE /playlists/{playlistid}: Excluir a playlist e suas músicas associadas
+DELETE {{host}}/playlists/6
+
+############################################################
+# reproducao - controla quantas vezes a playlist foi executada
+############################################################
+
+### POST /reproducao: Cria um registro de reprodução da playlist
+POST {{host}}/reproducao
+Content-Type: application/json
+
+{
+  "playlistid": 1
+}
+
+### GET /reproducao/{playlistid}: Listar todas as reproduções de uma playlist
+GET {{host}}/reproducao/1
+
+### GET /reproducao/total/{playlistid}: Total de execuções da playlist
+GET {{host}}/reproducao/total/1
+
+############################################################
+# api - orquestra os serviços (Open Feign)
+############################################################
+
+### POST /api/adicionar/{playlistId}/musicas/{musicaId}
+POST {{host}}/api/adicionar/2/musicas/1
+
+### POST: playlist inexistente (404)
+POST {{host}}/api/adicionar/999/musicas/1
+
+### POST: música inexistente (404)
+POST {{host}}/api/adicionar/1/musicas/999
+
+### PUT /api/executar/{playlistId}
+PUT {{host}}/api/executar/1
